@@ -26,7 +26,8 @@ The BankManager class is where you will implement your ‘main’ method and sta
 •	Your ‘main’ method.  The main method should display the menu and continually loop, performing the transactions, until the user enters 11 to exit the program.  If the user enters a number from 1-10, the program should call a method that implements the functionality for that transaction.  See details of each transaction at the end of this document.
 •	A method, ‘promptForAccountNumberAndPIN’ that takes one parameter, a Bank object that represents the bank. The method should prompt the user to enter an account number and then try to find a matching account with that account number in the bank.  If an account cannot be found, the program should print “Account not found for account number: 12345678” (assuming the user entered 12345678) and return null.  If an account is found, the program should then prompt the user to enter a PIN.  If the PIN entered does not match the PIN for the account, then the program should print “Invalid PIN” and return null.  If the PIN matches, then the method should return the Account object.  This method will be needed for MOST (but not all) transactions.
 
-CoinCollector class
+``
+  CoinCollector class
 This class represents a machine that can count change and has one method:
 •	A method called ‘parseChange’ that takes one parameter, a String that represents a set of coins/change.  The method must look at each character in the String and calculate the amount it represents in cents as a ‘long’ and return it.  The following characters represent valid coins:
 o	‘P’ represents a penny (1 cent)
@@ -35,7 +36,7 @@ o	‘D’ represents a dime (10 cents)
 o	‘Q’ represents a quarter (25 cents)
 o	‘H’ represents a half-dollar (50 cents)
 o	‘W’ represents a whole dollar (100 cents)
-At least 3 Unit tests must be written for the parseChange method
+At least 3 Unit tests must be written for the parseChange method``
  
 Account Class
 The Account class must store the following attributes:

@@ -10,14 +10,17 @@ class Account:
     def print_current_balance(self):
         print("Your current balance is: ", self.balance)
 
-    def deposit(self, funds):
-        self.balance += funds
+    def deposit(self):
+        amount = float(input("Enter amount to deposit: "))
+        self.balance += self.balance + amount 
+        print("Deposit is successful and the new balance is ", self.balance)
     
   
     def withdraw(self, funds):
-        if funds > self.balance:
-            raise ValueError("insufficient funds")
-        self.balance -= funds
+        amount = float(input("Enter the amount to withdraw: "))
+        if (self.balance >= amount):
+            self.balance = self.balance - amount
+            print("The withdrawal is successful and the new balance is: ", self.balance)
   
     
     def isValidPIN(pin):

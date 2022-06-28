@@ -5,27 +5,27 @@ class Bank:
 
         self.existingAccounts=[]
         
-        self.newAccount = []
   
-    def addAccountToBank(self, firstName, lastName, social, pin):
+    def createAccounts(self, firstName, lastName, social, pin):
+        firstName = str(input("Input your first name and press Enter: "))
+        lastName = str(input("Input your last name and press Enter: "))
+        social = int(input("Input your social security # and press Enter: "))
+        pin = int(input("Create a 4 digit pin and press Enter: "))
 
-        account = random.randint(1,5)
-
-        
-        self.account =account
+        accountNumber = random.randint(1,5)
+    
+        self.accountNumber =accountNumber
         self.firstName = firstName
         self.lastName = lastName
         self.social = social
         self.pin = pin
     
+        if (len(self.existingAccounts) <=100):
+            self.existingAccounts.append([accountNumber, firstName, lastName, social, pin])
 
-        self.newAccount.append(account, firstName, lastName, social, pin)
-        if len(self.existingAccounts) <100:
-            self.existingAccounts.append(self.newAccount)
-            print("Account Created!")
+            print("Account created successfully!")
         else:
             print("No more accounts available.")
-        
 
     def removeAccountFromBank(self,account):
     
@@ -34,7 +34,6 @@ class Bank:
                 self.existingAccounts.remove(self.existingAccounts[i])
 
             print("Account has been deleted")
-
 
     
     def findAccount(accountNumber):

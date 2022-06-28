@@ -2,10 +2,7 @@
 class CoinCollector:
 
     # constructor so you cannot instantiate this class
-    
 
-     
-    
     
     counter = 0
     newDict = {'P': 1,

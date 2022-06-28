@@ -8,18 +8,19 @@ class BankManager:
         # the program from.  The BankManager class should create an instance
         # of a Bank object when the program runs and use that instance to
         # manage the Accounts in the bank
-        
         @staticmethod  
-                
-        def promptForAccountNumberAndPIN(bank):
+        
+        def promptForAccountNumberAndPIN(pin):
+            self.pin = pin
             getAccountNumber = input("Please input the account # and press Enter: ")
             getPin = input("Please input the pin number and press enter: ")
-
+            
 
         if __name__ == "__main__":
             BankManager()
 
-        
+
+    
     active = True
     while active:
         userInput = int(input("""Input the number for your choice: 1) Open Account, 2) Get account infomration and balance, 3) Change PIN,
@@ -27,13 +28,7 @@ class BankManager:
         8) Deposit Change, 9) Close an account, 10) Add monthly interests to all accounts, 11) End Program. """))
         
         if userInput == 1:
-           
-            firstName = str(input("Input your first name and press Enter: "))
-            lastName = str(input("Input your last name and press Enter: "))
-            social = int(input("Input your social security # and press Enter: "))
-            pin = int(input("Create a 4 digit pin and press Enter: "))
-           
-            Bank.addAccountToBank(firstName, lastName, social, pin)
+            Bank.createAccounts()
         if userInput == 2:
             Account.print_current_balance()
         if userInput == 3:

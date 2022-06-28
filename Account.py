@@ -5,6 +5,8 @@ class Account:
         self.amount = amount
         self.balance = 0 
 
+    
+
     # add methods as getters and setters for attributes
        
     def print_current_balance(self):

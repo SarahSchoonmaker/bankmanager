@@ -1,4 +1,5 @@
 import random
+from BankManager import BaseManager
 class Bank:
     def __init__(self):
 
@@ -26,7 +27,7 @@ class Bank:
             print("Account created successfully!")
         else:
             print("No more accounts available.")
-
+        BaseManager()
     def removeAccountFromBank(self,account):
     
         for i in self.existingAccounts:
@@ -34,7 +35,7 @@ class Bank:
                 self.existingAccounts.remove(self.existingAccounts[i])
 
             print("Account has been deleted")
-
+            BaseManager()
     
     def findAccount(accountNumber):
         

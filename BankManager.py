@@ -1,3 +1,4 @@
+from multiprocessing.managers import BaseManager
 from Account import *
 from Bank import *
 from CoinCollector import *
@@ -55,7 +56,7 @@ class BankManager:
       
     if __name__ == "__main__":
         if userInput != 11:
-            BankManager()
+            BaseManager()
       
 
 

@@ -16,9 +16,6 @@ class BankManager:
             getPin = input("Please input the pin number and press enter: ")
             
 
-        if __name__ == "__main__":
-            BankManager()
-
 
     
     active = True
@@ -49,10 +46,17 @@ class BankManager:
         if userInput == 10:
             Bank.addMonthlyInterest()
         if userInput == 11:
-            active = False
-            print("Program closing...")
-            break
             
+            print("Program closing...")
+        
+            break       
+            
+            
+      
+    if __name__ == "__main__":
+        if userInput != 11:
+            BankManager()
+      
 
 
         

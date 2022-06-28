@@ -18,7 +18,7 @@ class Bank:
 
         accountNumber = BankUtility.generateRandomInt()
     
-        self.accountNumber =accountNumber
+        self.accountNumber = accountNumber
         self.firstName = firstName
         self.lastName = lastName
         self.social = social

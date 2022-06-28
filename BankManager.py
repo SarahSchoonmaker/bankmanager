@@ -1,3 +1,4 @@
+
 from multiprocessing.managers import BaseManager
 from Account import *
 from Bank import *
@@ -22,13 +23,14 @@ class BankManager:
 
     
     active = True
+    
     while active:
         userInput = int(input("""Input the number for your choice: 1) Open Account, 2) Get account infomration and balance, 3) Change PIN,
         4) Deposit money in account, 5) Transfer money between accounts, 6) Withdraw Money from account, 7) ATM withdrawal,
         8) Deposit Change, 9) Close an account, 10) Add monthly interests to all accounts, 11) End Program. """))
         
         if userInput == 1:
-            Bank.createAccounts(self=0)
+            Bank.createAccounts()
         if userInput == 2:
             Account.print_current_balance()
         if userInput == 3:
@@ -57,6 +59,7 @@ class BankManager:
             
       
     if __name__ == "__main__":
+        
         if userInput != 11:
             BaseManager()
       

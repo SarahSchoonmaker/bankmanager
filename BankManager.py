@@ -14,10 +14,6 @@ class BankManager:
         def promptForAccountNumberAndPIN(bank):
             getAccountNumber = input("Please input the account # and press Enter: ")
             getPin = input("Please input the pin number and press enter: ")
-        
-    
-       
-        
 
 
         if __name__ == "__main__":

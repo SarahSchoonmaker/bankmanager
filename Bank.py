@@ -1,5 +1,8 @@
-import random
-from BankManager import BaseManager
+
+
+from BankUtility import *
+
+
 class Bank:
     def __init__(self):
 
@@ -7,13 +10,13 @@ class Bank:
         self.existingAccounts=[]
         
   
-    def createAccounts(self, firstName, lastName, social, pin):
+    def createAccounts(self):
         firstName = str(input("Input your first name and press Enter: "))
         lastName = str(input("Input your last name and press Enter: "))
         social = int(input("Input your social security # and press Enter: "))
         pin = int(input("Create a 4 digit pin and press Enter: "))
 
-        accountNumber = random.randint(1,5)
+        accountNumber = BankUtility.generateRandomInt()
     
         self.accountNumber =accountNumber
         self.firstName = firstName
@@ -27,15 +30,15 @@ class Bank:
             print("Account created successfully!")
         else:
             print("No more accounts available.")
-        BaseManager()
+        
     def removeAccountFromBank(self,account):
     
         for i in self.existingAccounts:
-            if account == self.existingAccounts[i]:
+            if (account == self.existingAccounts[i]):
                 self.existingAccounts.remove(self.existingAccounts[i])
 
             print("Account has been deleted")
-            BaseManager()
+           
     
     def findAccount(accountNumber):
         

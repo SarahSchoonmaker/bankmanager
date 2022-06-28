@@ -4,7 +4,9 @@ from Bank import *
 from CoinCollector import *
 
 class BankManager:
-    def __init__(self):
+    def __init__(self, pin):
+        self.pin = pin
+      
         # This is where you will implement your ‘main’ method and start
         # the program from.  The BankManager class should create an instance
         # of a Bank object when the program runs and use that instance to
@@ -12,7 +14,7 @@ class BankManager:
         @staticmethod  
         
         def promptForAccountNumberAndPIN(pin):
-            self.pin = pin
+           
             getAccountNumber = input("Please input the account # and press Enter: ")
             getPin = input("Please input the pin number and press enter: ")
             
@@ -26,7 +28,7 @@ class BankManager:
         8) Deposit Change, 9) Close an account, 10) Add monthly interests to all accounts, 11) End Program. """))
         
         if userInput == 1:
-            Bank.createAccounts()
+            Bank.createAccounts(self=0)
         if userInput == 2:
             Account.print_current_balance()
         if userInput == 3:

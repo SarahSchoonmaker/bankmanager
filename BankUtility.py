@@ -1,23 +1,28 @@
 
+import random
+
 class BankUtility:
     
     def __init__(self):
         
+        
+        def generateRandomInt(self):
+
+            secNum = random.SystemRandom().random()
+            print("secure number is ", secNum*100)
+
+
         def promptUserForString(prompt):
             # implement promptUserForString here
             
-            return "" # be sure to change this
+            return 0
 
         def promptUserForPositiveNumber(prompt):
             
             # implement promptUserForPositiveNumber here
             
             return 0.0 # be sure to change this
-        
-        def generateRandomInteger(min, max):
-            # implement generateRandomInteger here
             
-            return 0 # be sure to change as needed
         
         def convertFromDollarsToCents(amount):        
             # implement convertFromDollarsToCents here     

@@ -9,8 +9,8 @@ class BankUtility:
     @staticmethod   
     def generateRandomInt(self):
 
-        secNum = random.SystemRandom().random()
-        print("You Accuont Number is: ", secNum)
+        secNum = int(random.SystemRandom().random()*10**8)
+        return secNum
 
 
     def promptUserForString(prompt):

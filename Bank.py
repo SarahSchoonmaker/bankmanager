@@ -14,7 +14,7 @@ class Bank:
         pin = int(input("Create a 4 digit pin and press Enter: "))
 
         accountNumber = BankUtility.generateRandomInt(self)
-    
+        print("accountnum "+str(accountNumber));
         account = Account(0, accountNumber, firstName, lastName, social, pin)
     
         if (len(self.existingAccounts) < 100):
@@ -36,14 +36,13 @@ class Bank:
     def findAccount(self):
         getAccount = float(input("Please provide your account number: "))
         for i in range(len(self.existingAccounts)):
+            print(self.existingAccounts[i].firstName)
+            print(self.existingAccounts[i].accountNumber)
+            if (self.existingAccounts[i].accountNumber == int(getAccount)):
+                print("success: Account Number is: ", self.existingAccounts[i].accountNumber )
+            else:
+                print("Account number not found for account ", self.existingAccounts[i].accountNumber)
                 
-                print("i", i)
-                print(type(getAccount))
-                print(type(self.existingAccounts[i][1]))
-            
-                if (self.existingAccounts[i][1] == getAccount):
-                    print("success")
-
     def addMonthlyInterest(percent):
     
         pass

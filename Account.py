@@ -1,3 +1,4 @@
+from typing_extensions import Self
 from Bank import *
 from BankUtility import *
 
@@ -70,23 +71,26 @@ class Account:
             print("The withdrawal is successful and the new balance is: ", self.balance)
             
     
-    def isValidPIN(pin):
+    def isValidPIN(self, getPin):
         
-        if Bank.existingAccounts[pin] == pin:
-            print("PIN is valid")
+        if (getPin == self.pin):
+             print("Your PIN is valid")
         else:
             print("Invalid PIN")
 
     def changePin(self):
-        if Account.isValidPIN():
-            getNewPin = input("Please provide a new PIN: ")
-            confirmNewPin = input ("Enter your PIN again to confirm: ")
+        
+        getNewPin = input("Please provide a new PIN: ")
+        confirmNewPin = input ("Enter your PIN again to confirm: ")
 
-            if getNewPin == confirmNewPin:
-                print("PIN successfully changed. ")
-            else:
-                print("Invalid PIN entry, try again")
-                
+        if getNewPin == confirmNewPin:
+            self.set_pin(getNewPin) 
+            print("PIN successfully changed. ")
+        else:
+            print("Invalid PIN entry, try again")
+            self.changePin()
+        
+            
     def atmDeposit():
         pass
     # all objects have a toString method - this indicates you are providing

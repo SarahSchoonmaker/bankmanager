@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from Bank import Bank
 from Account import Account
 from CoinCollector import CoinCollector
@@ -10,23 +11,24 @@ class BankManager:
 
     
     @staticmethod  
-    def promptForAccountNumberAndPIN(pin):
+    def promptForAccountNumberAndPIN(self):
         
-        getAccountNumber = input("Please input the account # and press Enter: ")
+        getAccountNumber = int(input("Please input the account # and press Enter: "))
         getPin = input("Please input the pin number and press enter: ")
-        
-        for i in Bank.existingAccounts:
-            if (getAccountNumber == Bank.existingAccounts[i]):
-                print("Account ", Bank.createAccounts[Account.get_accountNumber], "found.")
-                
-            else:
-                print("Account not found")
 
-            if (getPin == Bank.existingAccounts[i]):
-                print("Here is your bank information: ", Bank.existingAccounts[i])
+        
+        
+        for i in self.bank.existingAccounts:
+            if ((getAccountNumber == i.accountNumber) and (getPin == i.pin)):
+                print("You Account Number is: ", getAccountNumber, "found.")
+                print("Your PIN is: ", i.pin)
+                return i
             else:
-                print("Invalid PIN")
-        return 0
+                print("Invalid PIN or Account Number.")
+    
+        return NULL
+                
+       
 
     def main(self):
         active = True
@@ -50,7 +52,9 @@ class BankManager:
             if userInput == 2:
                 self.bank.findAccount()
             if userInput == 3:
-                self.account.changePin()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    i.changePin()
             if userInput == 4:
                 self.account.deposit()
             if userInput == 5:

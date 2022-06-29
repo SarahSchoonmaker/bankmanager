@@ -25,7 +25,7 @@ class Bank:
         else:
             print("No more accounts available.")
         
-    def removeAccountFromBank(self,account):
+    def removeAccountFromBank(self, account):
     
         for i in self.existingAccounts:
             if (account == self.existingAccounts[i]):
@@ -34,11 +34,20 @@ class Bank:
             print("Account has been deleted")
            
     
-    def findAccount(accountNumber):
-        
-        return  # be sure to change this as needed
-    
+    def findAccount(self, account):
+        for pos,inner_ar in enumerate(account):
+            if len(inner_ar)==1:
+                for i,inner_ar2 in enumerate(account):
+                    if i!=pos and any(c for c in inner_ar2 for c in inner_ar):
+               
+
+
+        for i in self.existingAccounts:
+            if (account == self.existingAccounts[i]): 
+                print("Your account details are: ", account)
+        else:
+            print("Could not find your account. Please create an account and try again.")
 
     def addMonthlyInterest(percent):
     
-        return 0
+        pass

@@ -1,7 +1,5 @@
-
-
 from BankUtility import *
-
+from Account import Account
 
 class Bank:
     def __init__(self):
@@ -16,16 +14,12 @@ class Bank:
         social = int(input("Input your social security # and press Enter: "))
         pin = int(input("Create a 4 digit pin and press Enter: "))
 
-        accountNumber = BankUtility.generateRandomInt()
+        accountNumber = BankUtility.generateRandomInt(self)
     
-        self.accountNumber = accountNumber
-        self.firstName = firstName
-        self.lastName = lastName
-        self.social = social
-        self.pin = pin
+        account = Account(0, accountNumber, firstName, lastName, social, pin)
     
-        if (len(self.existingAccounts) <=100):
-            self.existingAccounts.append([accountNumber, firstName, lastName, social, pin])
+        if (len(self.existingAccounts) < 100):
+            self.existingAccounts.append(account)
 
             print("Account created successfully!")
         else:

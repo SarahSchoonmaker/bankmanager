@@ -1,4 +1,6 @@
+from Bank import *
 from BankUtility import *
+
 
 
 class Account:
@@ -70,14 +72,24 @@ class Account:
     
     def isValidPIN(pin):
         
-        # implement isValidPIN here
-        
-        return False  # be sure to change this
-    
+        if Bank.existingAccounts[pin] == pin:
+            print("PIN is valid")
+        else:
+            print("Invalid PIN")
 
-    
+    def changePin(self):
+        if Account.isValidPIN():
+            getNewPin = input("Please provide a new PIN: ")
+            confirmNewPin = input ("Enter your PIN again to confirm: ")
+
+            if getNewPin == confirmNewPin:
+                print("PIN successfully changed. ")
+            else:
+                print("Invalid PIN entry, try again")
+                
+    def atmDeposit():
+        pass
     # all objects have a toString method - this indicates you are providing
     # your own version
     def __repr__(self):
-        return "" # change this as needed
-
+      pass

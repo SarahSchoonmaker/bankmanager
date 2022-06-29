@@ -1,5 +1,6 @@
+from Account import Account
 from BankUtility import *
-from Account import *
+
 
 class Bank:
     def __init__(self):
@@ -40,9 +41,13 @@ class Bank:
                 print(type(getAccount))
                 print(type(self.existingAccounts[i][1]))
             
-                if (Account.get_accountNumber == getAccount):
+                if (self.existingAccounts[i][1] == getAccount):
                     print("success")
 
     def addMonthlyInterest(percent):
     
         pass
+
+
+    #  Need help with find account method in Bank.py. Randomly generating an 8 digit number with no zeros.
+    #  

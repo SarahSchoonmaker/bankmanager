@@ -1,17 +1,13 @@
-
-from multiprocessing.managers import BaseManager
-from typing_extensions import Self
-from Account import *
-from Bank import *
-from CoinCollector import *
+from Bank import Bank
+from Account import Account
+from CoinCollector import CoinCollector
 
 class BankManager:
     def __init__(self):
         self.bank = Bank()
-        # self.account = Account()
-        # self.coinCollector = CoinCollector()
-    
-        
+        self.account = Account(0,accountNumber=0,firstName=0,lastName=0,social=0,pin=0)
+        self.coinCollector = CoinCollector()
+
     
     @staticmethod  
     def promptForAccountNumberAndPIN(pin):
@@ -19,18 +15,18 @@ class BankManager:
         getAccountNumber = input("Please input the account # and press Enter: ")
         getPin = input("Please input the pin number and press enter: ")
         
-        for i in existingAccounts:
-            if (getAccountNumber == getAccountNumber):
-                print("Account ", account, "found.")
-                pinInput = input("Please enter your pin number")
+        for i in Bank.existingAccounts:
+            if (getAccountNumber == Bank.existingAccounts[i]):
+                print("Account ", Bank.createAccounts[Account.get_accountNumber], "found.")
+                
             else:
                 print("Account not found")
 
-            if (getPin == pin):
-                print(existingAccounts)
+            if (getPin == Bank.existingAccounts[i]):
+                print("Here is your bank information: ", Bank.existingAccounts[i])
             else:
                 print("Invalid PIN")
-                return 0
+        return 0
 
     def main(self):
         active = True
@@ -54,7 +50,7 @@ class BankManager:
             if userInput == 2:
                 self.bank.findAccount()
             if userInput == 3:
-                self.account.isValidPIN()
+                self.account.changePin()
             if userInput == 4:
                 self.account.deposit()
             if userInput == 5:
@@ -79,7 +75,8 @@ class BankManager:
      
 if __name__ == "__main__":
     bank_manager = BankManager()
-    bank_manager.main()           
+    bank_manager.main()  
+           
         
     
 

@@ -1,5 +1,6 @@
 
 from multiprocessing.managers import BaseManager
+from typing_extensions import Self
 from Account import *
 from Bank import *
 from CoinCollector import *
@@ -7,8 +8,8 @@ from CoinCollector import *
 class BankManager:
     def __init__(self):
         self.bank = Bank()
-        self.account = Account()
-        self.coinCollector = CoinCollector()
+        # self.account = Account()
+        # self.coinCollector = CoinCollector()
     
         
     
@@ -51,7 +52,7 @@ class BankManager:
             if userInput == 1:
                 self.bank.createAccounts()
             if userInput == 2:
-                self.bank.findAccount(Account)
+                self.bank.findAccount()
             if userInput == 3:
                 self.account.isValidPIN()
             if userInput == 4:

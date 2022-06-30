@@ -1,25 +1,27 @@
 
 class CoinCollector:
-
-    # constructor so you cannot instantiate this class
-
     
     counter = 0
-    newDict = {'P': 1,
+    coinDict = {'P': 1,
     'N':5,
     'D':10,
     'Q':25,
     'H': 50,
     'W': 100}
     
-    def parseChange(coins):
-        # coins = input("""Input P for each penny, N for each nickel, D for each dime, Q for quarter, H for half-dollar, and W for whole dollar
-        # . Ex. pndq and press Enter.""")
-        # for i in coins:
+    def parseChange(self):
+        getCoins = str(input("Provide a list of coins, Ex. PNDQHW").split(",")).upper()
+        print(getCoins)
+        
+        for j in getCoins:
 
-        pass
+            for i in self.coinDict:
+                if getCoins[j] in self.coinDict[i]:
+                    self.counter +=1
+            else:
+                print("Invaid Entry. Try again.")
+        # Call depsoit method on account and deposit coins into the account. Display the updated balance.
 
 
-        # implement parseChange here
         
         

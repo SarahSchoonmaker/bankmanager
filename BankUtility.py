@@ -1,4 +1,4 @@
-
+#  import random to generate random numbers.
 import random
 
 class BankUtility:
@@ -6,6 +6,9 @@ class BankUtility:
     def __init__(self):
         pass
     
+    # Generate a random 8 digit number that will be used as a user's account number.
+    # The other methods are helper methods that can be used if needed. 
+
     @staticmethod   
     def generateRandomInt(self):
 
@@ -26,7 +29,7 @@ class BankUtility:
     def convertFromDollarsToCents(amount):        
         # implement convertFromDollarsToCents here     
         
-        return 0 # be sure to change as needed
+        return 0 
 
     '''
     Checks if a given string is a number (long)

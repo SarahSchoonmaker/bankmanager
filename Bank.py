@@ -1,12 +1,14 @@
-from Account import *
+from Account import Account
 from BankUtility import *
 
-
+#  The bank class initializes an array to store all the existing accounts. 
 class Bank:
     def __init__(self):
 
         self.existingAccounts=[]
-
+#  Create count function gets user input, generates a random number for the account, and puts
+#  the user account information or user object into the existing accounts array if there are less
+# than 100 accounts. 
     def createAccounts(self):
         firstName = str(input("Input your first name and press Enter: "))
         lastName = str(input("Input your last name and press Enter: "))
@@ -25,7 +27,7 @@ class Bank:
         else:
             print("No more accounts available.")
         
-    
+    # This method finds and returns the account details if it exists. User provides their account number to search. 
     def findAccount(self):
         getAccount = float(input("Please provide your account number: "))
         for i in range(len(self.existingAccounts)):
@@ -41,7 +43,8 @@ class Bank:
             else:
                 print("Account number not found for account ", self.existingAccounts[i].accountNumber)
                 
-    
+    # Removing the account from the existing accounts array. 
+     
     def removeAccountFromBank(self):
         removeAccount = input("Provide the account # to remove: ")
         for i in range(len(self.existingAccounts)):
@@ -52,15 +55,18 @@ class Bank:
             else:
                 print("Could not find the account your are looking for")
 
+#  Transfer money between accounts that the user specifies and returning the updated balances. 
+
     def transferBetweenAccounts(self):
         transferFrom = input("Provide the account number to transfer from")
         transferTo = input("Provide the account number to transfer to")
         amount = input("Amount transferred: ")
         for i in range(len(self.existingAccounts)):
-            if self.existingAccounts[i].balance > amount:
-                self.existingAccounts[i] - amount
-                self.existingAccounts[i].balance + amount
-                print("Transfer complete. The new balances of the accounts are: ")
+            if self.existingAccounts[transferFrom].balance > amount:
+                self.existingAccounts[transferFrom] - amount
+                self.existingAccounts[transferTo].balance + amount
+                print("Transfer complete. The new balances of the accounts are: ", transferFrom, ": " )
             else:
                 print("""The transfer cannot be completed. Check the account balances to ensure
                 there are enough funds.""")
+       

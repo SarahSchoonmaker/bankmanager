@@ -5,7 +5,7 @@ from BankUtility import *
 
 
 class Account:
-    # add your attributes here
+    # Account attributes that will be created with each new user and account. 
     def __init__(self, balance, accountNumber, firstName, lastName, social, pin):
         self.balance = balance
         self.accountNumber=accountNumber
@@ -52,12 +52,10 @@ class Account:
     def get_pin(self):
         return self.pin
 
-
-    
     def print_current_balance(self):
         print("Your current balance is: ", self.balance)
         
-
+# Methods for account functions: deposit, withdraw, checking and changin PIN, and ATM withdrawal. 
     def deposit(self):
         amount = float(input("Enter amount to deposit: "))
         self.balance += self.balance + amount 
@@ -72,13 +70,14 @@ class Account:
         else:
             print("Insufficient funds.")  
     
+    #  Checking if the pin is valid
     def isValidPIN(self, getPin):
         
         if (getPin == self.pin):
              print("Your PIN is valid")
         else:
             print("Invalid PIN")
-
+# Changing the PIN. 
     def changePin(self):
         
         getNewPin = input("Please provide a new PIN: ")
@@ -90,7 +89,8 @@ class Account:
         else:
             print("Invalid PIN entry, try again")
             self.changePin()
-        
+
+# ATM withdrawal function 
     def ATMWithdrawal(self):
         pass
            
@@ -101,6 +101,6 @@ class Account:
       pass
 
 ## ISSUES:
-# Change pin isn't working anymore.
+# Change pin isn't working fully anymore.
 # For deposit, withdrawal, and transfer, how to look up the account the user wants to
 # do something with. For transfer, how to look up the from and to accounts and update the balances. 

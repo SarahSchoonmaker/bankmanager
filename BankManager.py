@@ -3,21 +3,20 @@ from Bank import Bank
 from Account import Account
 from CoinCollector import CoinCollector
 
+# Bank manager initializes objects for bank, account, and coin collector. 
 class BankManager:
     def __init__(self):
         self.bank = Bank()
         self.account = Account(0,accountNumber=0,firstName=0,lastName=0,social=0,pin=0)
         self.coinCollector = CoinCollector()
 
-    
+    # Checking if the bank account and pin exist. 
     @staticmethod  
     def promptForAccountNumberAndPIN(self):
         
         getAccountNumber = int(input("Please input the account # and press Enter: "))
         getPin = input("Please input the pin number and press enter: ")
 
-        
-        
         for i in self.bank.existingAccounts:
             if ((getAccountNumber == i.accountNumber) and (getPin == i.pin)):
                 print("You Account Number is: ", getAccountNumber, "found.")
@@ -25,10 +24,11 @@ class BankManager:
                 return i
             else:
                 print("Invalid PIN or Account Number.")
-    
+
         return NULL
-                
-       
+
+#  The main method produces a list of options until the user types 11 to exit the program. 
+# Methods are called based on which item the user selects. 
 
     def main(self):
         active = True
@@ -40,7 +40,7 @@ class BankManager:
             3) Change PIN
             4) Deposit money in account
             5) Transfer money between accounts
-            6) Withdraw Money from account
+            6) Withdraw money from account
             7) ATM withdrawal
             8) Deposit Change
             9) Close an account
@@ -55,22 +55,35 @@ class BankManager:
                 if i != NULL:
                     i.changePin()
             if userInput == 4:
-                self.account.deposit()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    self.account.deposit()
             if userInput == 5:
-                self.bank.transferBetweenAccounts()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    self.bank.transferBetweenAccounts()
             if userInput == 6:
-                self.account.withdraw()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    self.account.withdraw()
             if userInput == 7:
-                self.account.ATMWithdrawal()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    self.account.ATMWithdrawal()
             if userInput == 8:
-                self.coinCollector.parseChange()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    self.coinCollector.parseChange()
             if userInput == 9:
-                self.bank.removeAccountFromBank()
+                i = self.promptForAccountNumberAndPIN(self)
+                if i != NULL:
+                    self.bank.removeAccountFromBank()
             if userInput == 11:
                 print("Program closing...")
             
                 active=False       
-                
+
+# Calling the bank manager and main classes.   
      
 if __name__ == "__main__":
     bank_manager = BankManager()

@@ -55,17 +55,17 @@ class Account:
     def print_current_balance(self):
         print("Your current balance is: ", self.balance)
         
-# Methods for account functions: deposit, withdraw, checking and changin PIN, and ATM withdrawal. 
+# Methods for account functions: deposit, withdraw, checking and changing PIN, and ATM withdrawal. 
     def deposit(self):
         amount = float(input("Enter amount to deposit: "))
-        self.balance += self.balance + amount 
+        self.balance += amount 
         print("Deposit is successful and the new balance is ", self.balance)
        
   
     def withdraw(self):
         amount = float(input("Enter the amount to withdraw: "))
         if (self.balance >= amount):
-            self.balance = self.balance - amount
+            self.balance -= amount
             print("The withdrawal is successful and the new balance is: ", self.balance)
         else:
             print("Insufficient funds.")  

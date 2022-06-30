@@ -15,15 +15,16 @@ class BankManager:
     def promptForAccountNumberAndPIN(self):
         
         getAccountNumber = int(input("Please input the account # and press Enter: "))
-        getPin = input("Please input the pin number and press enter: ")
+        getPin = int(input("Please input the pin number and press enter: "))
 
         for i in self.bank.existingAccounts:
+
             if ((getAccountNumber == i.accountNumber) and (getPin == i.pin)):
                 print("You Account Number is: ", getAccountNumber, "found.")
                 print("Your PIN is: ", i.pin)
                 return i
-            else:
-                print("Invalid PIN or Account Number.")
+        else:
+            print("Invalid PIN or Account Number.")
 
         return NULL
 
@@ -57,7 +58,7 @@ class BankManager:
             if userInput == 4:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    self.account.deposit()
+                    i.deposit()
             if userInput == 5:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
@@ -65,7 +66,7 @@ class BankManager:
             if userInput == 6:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    self.account.withdraw()
+                    i.withdraw()
             if userInput == 7:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:

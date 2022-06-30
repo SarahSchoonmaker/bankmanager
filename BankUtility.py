@@ -14,15 +14,13 @@ class BankUtility:
 
 
     def promptUserForString(prompt):
-        # implement promptUserForString here
+        getString = str(input("Input a word"))
+        return getString
         
-        return 0
 
     def promptUserForPositiveNumber(prompt):
-        
-        # implement promptUserForPositiveNumber here
-        
-        return 0.0 # be sure to change this
+        getPositiveInteger = float(input("Input a positive number"))
+        return getPositiveInteger
         
 
     def convertFromDollarsToCents(amount):        

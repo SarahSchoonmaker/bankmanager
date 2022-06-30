@@ -1,4 +1,4 @@
-from Account import Account
+from Account import *
 from BankUtility import *
 
 
@@ -14,7 +14,8 @@ class Bank:
         pin = int(input("Create a 4 digit pin and press Enter: "))
 
         accountNumber = BankUtility.generateRandomInt(self)
-        print("accountnum "+str(accountNumber));
+        print("Your new account number is: " +str(accountNumber))
+        
         account = Account(0, accountNumber, firstName, lastName, social, pin)
     
         if (len(self.existingAccounts) < 100):
@@ -24,29 +25,42 @@ class Bank:
         else:
             print("No more accounts available.")
         
-    def removeAccountFromBank(self):
-    
-        # for i in self.existingAccounts:
-        #     if (account == self.exc:\Users\srsch\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\code\electron-browser\workbench\workbench.htmlistingAccounts[i]):
-        #         self.existingAccounts.remove(self.existingAccounts[i])
-
-        #     print("Account has been deleted")
-        pass  
     
     def findAccount(self):
         getAccount = float(input("Please provide your account number: "))
         for i in range(len(self.existingAccounts)):
-            print(self.existingAccounts[i].firstName)
-            print(self.existingAccounts[i].accountNumber)
-            if (self.existingAccounts[i].accountNumber == int(getAccount)):
-                print("success: Account Number is: ", self.existingAccounts[i].accountNumber )
+            # print(self.existingAccounts[i].firstName)
+            # print(self.existingAccounts[i].accountNumber)
+            if self.existingAccounts[i].accountNumber == int(getAccount):
+                print("Success. Account number found for: ", 
+                self.existingAccounts[i].accountNumber,'\n',
+                "The current balance is:",
+                self.existingAccounts[i].balance,'\n', "The PIN is: ",self.existingAccounts[i].pin,'\n',
+                "First name:", self.existingAccounts[i].firstName,'\n', 
+                "Last name:", self.existingAccounts[i].lastName)
             else:
                 print("Account number not found for account ", self.existingAccounts[i].accountNumber)
                 
-    def addMonthlyInterest(percent):
     
-        pass
+    def removeAccountFromBank(self):
+        removeAccount = input("Provide the account # to remove: ")
+        for i in range(len(self.existingAccounts)):
+            if self.existingAccounts[i].accountNumber == int(removeAccount):
+                self.existingAccounts.remove(self.existingAccounts[i])
+                print("Accout successfully removed")
 
+            else:
+                print("Could not find the account your are looking for")
 
-    #  Need help with find account method in Bank.py. Randomly generating an 8 digit number with no zeros.
-    #  
+    def transferBetweenAccounts(self):
+        transferFrom = input("Provide the account number to transfer from")
+        transferTo = input("Provide the account number to transfer to")
+        amount = input("Amount transferred: ")
+        for i in range(len(self.existingAccounts)):
+            if self.existingAccounts[i].balance > amount:
+                self.existingAccounts[i] - amount
+                self.existingAccounts[i].balance + amount
+                print("Transfer complete. The new balances of the accounts are: ")
+            else:
+                print("""The transfer cannot be completed. Check the account balances to ensure
+                there are enough funds.""")

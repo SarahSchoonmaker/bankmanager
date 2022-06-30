@@ -44,8 +44,7 @@ class BankManager:
             7) ATM withdrawal
             8) Deposit Change
             9) Close an account
-            10) Add monthly interests to all accounts
-            11) End Program  """))
+            11) Exit the bank """))
             
             if userInput == 1:
                 self.bank.createAccounts()
@@ -58,20 +57,16 @@ class BankManager:
             if userInput == 4:
                 self.account.deposit()
             if userInput == 5:
-                # Not sure how to do this yet
-                pass
+                self.bank.transferBetweenAccounts()
             if userInput == 6:
                 self.account.withdraw()
             if userInput == 7:
-                self.account.withdraw()
+                self.account.ATMWithdrawal()
             if userInput == 8:
                 self.coinCollector.parseChange()
             if userInput == 9:
                 self.bank.removeAccountFromBank()
-            if userInput == 10:
-                self.bank.addMonthlyInterest()
             if userInput == 11:
-                
                 print("Program closing...")
             
                 active=False       
@@ -80,11 +75,3 @@ class BankManager:
 if __name__ == "__main__":
     bank_manager = BankManager()
     bank_manager.main()  
-           
-        
-    
-
-    
-        
-        
-

@@ -52,7 +52,7 @@ class Account:
     def get_pin(self):
         return self.pin
 
-    # add methods as getters and setters for attributes
+
     
     def print_current_balance(self):
         print("Your current balance is: ", self.balance)
@@ -69,7 +69,8 @@ class Account:
         if (self.balance >= amount):
             self.balance = self.balance - amount
             print("The withdrawal is successful and the new balance is: ", self.balance)
-            
+        else:
+            print("Insufficient funds.")  
     
     def isValidPIN(self, getPin):
         
@@ -90,10 +91,16 @@ class Account:
             print("Invalid PIN entry, try again")
             self.changePin()
         
-            
-    def atmDeposit():
+    def ATMWithdrawal(self):
         pass
+           
+    
     # all objects have a toString method - this indicates you are providing
     # your own version
     def __repr__(self):
       pass
+
+## ISSUES:
+# Change pin isn't working anymore.
+# For deposit, withdrawal, and transfer, how to look up the account the user wants to
+# do something with. For transfer, how to look up the from and to accounts and update the balances. 

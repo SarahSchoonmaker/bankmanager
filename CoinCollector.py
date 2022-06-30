@@ -1,7 +1,13 @@
 
+from asyncio.windows_events import NULL
+from itertools import count
+
+from prometheus_client import Counter
+
+
 class CoinCollector:
     
-    counter = 0
+    
     coinDict = {'P': 1,
     'N':5,
     'D':10,
@@ -10,18 +16,16 @@ class CoinCollector:
     'W': 100}
     
     def parseChange(self):
-        getCoins = str(input("Provide a list of coins, Ex. PNDQHW").split(",")).upper()
+        counter = 0
+        getCoins = input("Provide a list of coins, Ex. PNDQHW").upper()
         print(getCoins)
         
         for j in getCoins:
-
-            for i in self.coinDict:
-                if getCoins[j] in self.coinDict[i]:
-                    self.counter +=1
-            else:
+            if j not in getCoins:
                 print("Invaid Entry. Try again.")
-        # Call depsoit method on account and deposit coins into the account. Display the updated balance.
+                return None
+            counter+=self.coinDict[j]
 
+        return counter / 100
 
-        
-        
+    

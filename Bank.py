@@ -40,8 +40,7 @@ class Bank:
                 self.existingAccounts[i].balance,'\n', "The PIN is: ",self.existingAccounts[i].pin,'\n',
                 "First name:", self.existingAccounts[i].firstName,'\n', 
                 "Last name:", self.existingAccounts[i].lastName)
-            else:
-                print("Account number not found for account ", self.existingAccounts[i].accountNumber)
+        
                 
     # Removing the account from the existing accounts array. 
      

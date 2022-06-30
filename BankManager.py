@@ -58,7 +58,9 @@ class BankManager:
             if userInput == 4:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    i.deposit()
+                    amount = float(input("Enter amount to deposit: "))
+                    i.deposit(amount)
+                    print("Deposit is successful and the new balance is ", i.get_balance())
             if userInput == 5:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
@@ -70,15 +72,17 @@ class BankManager:
             if userInput == 7:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    self.account.ATMWithdrawal()
+                    i.ATMWithdrawal()
             if userInput == 8:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    self.coinCollector.parseChange()
+                    amount = self.coinCollector.parseChange()
+                    if amount is not None:
+                        i.deposit(amount)
             if userInput == 9:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    self.bank.removeAccountFromBank()
+                   self.bank.removeAccountFromBank()
             if userInput == 11:
                 print("Program closing...")
             

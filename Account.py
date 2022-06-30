@@ -56,10 +56,10 @@ class Account:
         print("Your current balance is: ", self.balance)
         
 # Methods for account functions: deposit, withdraw, checking and changing PIN, and ATM withdrawal. 
-    def deposit(self):
-        amount = float(input("Enter amount to deposit: "))
+    def deposit(self, amount):
+        
         self.balance += amount 
-        print("Deposit is successful and the new balance is ", self.balance)
+        
        
   
     def withdraw(self):
@@ -92,8 +92,25 @@ class Account:
 
 # ATM withdrawal function 
     def ATMWithdrawal(self):
-        pass
-           
+        amount = float(input("Enter the amount to withdraw from the ATM: "))
+        if self.balance < amount:
+            print("Insufficient funds")
+            return
+
+        if (amount < 5 or amount > 1000) or (amount % 5 !=0):
+            twentyDollarBill = amount // 20
+            tenDollarBills = amount // 10
+            fiveDollarBills = amount // 5
+
+            # Finish the math
+            raise NotImplementedError
+            print(twentyDollarBill, tenDollarBills, fiveDollarBills)
+            
+            self.balance -= amount
+
+            print("ATM withdrawal successful. The new balance is: ", self.balance)
+        else:
+            print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
     
     # all objects have a toString method - this indicates you are providing
     # your own version

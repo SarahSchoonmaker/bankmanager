@@ -1,7 +1,5 @@
-from typing_extensions import Self
-from Bank import *
-from BankUtility import *
 
+from BankUtility import *
 
 
 class Account:
@@ -57,10 +55,9 @@ class Account:
         
 # Methods for account functions: deposit, withdraw, checking and changing PIN, and ATM withdrawal. 
     def deposit(self, amount):
-        
+    
         self.balance += amount 
-        
-       
+
   
     def withdraw(self):
         amount = float(input("Enter the amount to withdraw: "))
@@ -70,6 +67,8 @@ class Account:
         else:
             print("Insufficient funds.")  
     
+    
+
     #  Checking if the pin is valid
     def isValidPIN(self, getPin):
         
@@ -77,20 +76,21 @@ class Account:
              print("Your PIN is valid")
         else:
             print("Invalid PIN")
-# Changing the PIN. 
+    # Changing the PIN. 
     def changePin(self):
         
-        getNewPin = input("Please provide a new PIN: ")
-        confirmNewPin = input ("Enter your PIN again to confirm: ")
+        getNewPin = int(input("Please provide a new PIN: "))
+        confirmNewPin = int(input ("Enter your PIN again to confirm: "))
 
         if getNewPin == confirmNewPin:
+            # self.pin == getNewPin
             self.set_pin(getNewPin) 
             print("PIN successfully changed. ")
         else:
             print("Invalid PIN entry, try again")
             self.changePin()
 
-# ATM withdrawal function 
+    # ATM withdrawal function 
     def ATMWithdrawal(self):
         amount = float(input("Enter the amount to withdraw from the ATM: "))
         if self.balance < amount:
@@ -112,12 +112,4 @@ class Account:
         else:
             print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
     
-    # all objects have a toString method - this indicates you are providing
-    # your own version
-    def __repr__(self):
-      pass
-
-## ISSUES:
-# Change pin isn't working fully anymore.
-# For deposit, withdrawal, and transfer, how to look up the account the user wants to
-# do something with. For transfer, how to look up the from and to accounts and update the balances. 
+        pass

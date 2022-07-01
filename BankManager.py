@@ -1,6 +1,6 @@
 from asyncio.windows_events import NULL
-from Bank import Bank
-from Account import Account
+from Bank import *
+from Account import *
 from CoinCollector import CoinCollector
 
 # Bank manager initializes objects for bank, account, and coin collector. 

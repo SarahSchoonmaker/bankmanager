@@ -1,10 +1,4 @@
 
-from asyncio.windows_events import NULL
-from itertools import count
-
-from prometheus_client import Counter
-
-
 class CoinCollector:
     
     
@@ -17,8 +11,9 @@ class CoinCollector:
     
     def parseChange(self):
         counter = 0
-        getCoins = input("Provide a list of coins, Ex. PNDQHW").upper()
-        print(getCoins)
+        getCoins = input("""Provide a list of any of these characters: 
+            PNDQHW. P=1,N=5,D=10,Q=25,H=50,W=100 Ex. pnd: """).upper()
+        # print(getCoins)
         
         for j in getCoins:
             if j not in getCoins:

@@ -26,10 +26,10 @@ class BankUtility:
         return getPositiveInteger
         
 
-    def convertFromDollarsToCents(amount):        
-        # implement convertFromDollarsToCents here     
+    def convertFromDollarsToCents(dollar):         
+        cents = float(dollar) * 100
+        return cents
         
-        return 0 
 
     '''
     Checks if a given string is a number (long)

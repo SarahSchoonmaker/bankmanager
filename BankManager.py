@@ -14,8 +14,8 @@ class BankManager:
     @staticmethod  
     def promptForAccountNumberAndPIN(self):
         
-        getAccountNumber = int(input("Please input the account # and press Enter: "))
-        getPin = int(input("Please input the pin number and press enter: "))
+        getAccountNumber = int(input("Please input the account # to log into the bank and press Enter: "))
+        getPin = int(input("Please input your pin number and press Enter: "))
 
         for i in self.bank.existingAccounts:
 
@@ -23,13 +23,14 @@ class BankManager:
                 print("You Account Number is: ", getAccountNumber, "found.")
                 print("Your PIN is: ", i.pin)
                 return i
-        else:
-            print("Invalid PIN or Account Number.")
+            else:
+                print("Invalid PIN or Account Number.")
 
         return NULL
 
 #  The main method produces a list of options until the user types 11 to exit the program. 
-# Methods are called based on which item the user selects. 
+# Methods are called based on which item the user selects and the user must sign in successfully 
+# to the account to execute most options. 
 
     def main(self):
         active = True

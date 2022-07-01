@@ -1,3 +1,5 @@
+from asyncio.windows_events import NULL
+from contextlib import nullcontext
 from Account import Account
 from BankUtility import BankUtility
 
@@ -40,19 +42,23 @@ class Bank:
                 self.existingAccounts[i].balance,'\n', "The PIN is: ",self.existingAccounts[i].pin,'\n',
                 "First name:", self.existingAccounts[i].firstName,'\n', 
                 "Last name:", self.existingAccounts[i].lastName)
-        
+            
+            else:
+                print("Could not find the account.")
                 
-    # Removing the account from the existing accounts array. 
+    # Removing the account from the existing accounts object. 
      
     def removeAccountFromBank(self):
-        removeAccount = input("Provide the account # to remove: ")
+        removeAccount = int(input("Provide the account # to remove: "))
+        
         for i in range(len(self.existingAccounts)):
+            
             if self.existingAccounts[i].accountNumber == int(removeAccount):
                 self.existingAccounts.remove(self.existingAccounts[i])
                 print("Accout successfully removed")
 
-            else:
-                print("Could not find the account your are looking for")
+        
+    print("Could not find the account.")   
 
 #  Transfer money between accounts that the user specifies and returning the updated balances. 
 

@@ -1,4 +1,5 @@
 
+
 from BankUtility import *
 
 
@@ -11,6 +12,7 @@ class Account:
         self.lastName = lastName
         self.social = social
         self.pin = pin
+        
 
     # Getter and Setter Methods
 
@@ -65,9 +67,7 @@ class Account:
             self.balance -= amount
             print("The withdrawal is successful and the new balance is: ", self.balance)
         else:
-            print("Insufficient funds.")  
-    
-    
+            print("Insufficient funds.")   
 
     #  Checking if the pin is valid
     def isValidPIN(self, getPin):
@@ -83,14 +83,16 @@ class Account:
         confirmNewPin = int(input ("Enter your PIN again to confirm: "))
 
         if getNewPin == confirmNewPin:
-            # self.pin == getNewPin
-            self.set_pin(getNewPin) 
+            self.set_pin(getNewPin)
+            self.pin = getNewPin
             print("PIN successfully changed. ")
         else:
             print("Invalid PIN entry, try again")
             self.changePin()
 
-    # ATM withdrawal function 
+    # ATM withdrawal function. Counts how many 20, 10, and 5 dollar bills divide into the amount
+    # and subtracts that amount from the amount given. Then returns the updated balance. 
+     
     def ATMWithdrawal(self):
         amount = float(input("Enter the amount to withdraw from the ATM: "))
         if self.balance < amount:
@@ -102,14 +104,19 @@ class Account:
             tenDollarBills = amount // 10
             fiveDollarBills = amount // 5
 
-            # Finish the math
-            raise NotImplementedError
-            print(twentyDollarBill, tenDollarBills, fiveDollarBills)
+            print("20 dollar bills: ", twentyDollarBill, "10 dollar bills:", 
+            tenDollarBills, "5 dollar bills: ", fiveDollarBills)
             
-            self.balance -= amount
+            multiple1 = twentyDollarBill * 20 
+            multiple2 = tenDollarBills *10
+            multiple3 = fiveDollarBills * 5
+            
+            self.balance = amount - multiple1 
+            self.balance = amount - multiple2
+            self.balance = amount - multiple3
 
             print("ATM withdrawal successful. The new balance is: ", self.balance)
         else:
             print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
     
-        pass
+    

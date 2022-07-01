@@ -76,6 +76,7 @@ class Account:
              print("Your PIN is valid")
         else:
             print("Invalid PIN")
+    
     # Changing the PIN. 
     def changePin(self):
         
@@ -94,29 +95,31 @@ class Account:
     # and subtracts that amount from the amount given. Then returns the updated balance. 
      
     def ATMWithdrawal(self):
-        amount = float(input("Enter the amount to withdraw from the ATM: "))
+        amount = int(input("Enter the amount to withdraw from the ATM: "))
         if self.balance < amount:
             print("Insufficient funds")
-            return
+            return 0
 
         if (amount < 5 or amount > 1000) or (amount % 5 !=0):
+            print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
+        
+        else:
             twentyDollarBill = amount // 20
             tenDollarBills = amount // 10
             fiveDollarBills = amount // 5
 
-            print("20 dollar bills: ", twentyDollarBill, "10 dollar bills:", 
-            tenDollarBills, "5 dollar bills: ", fiveDollarBills)
+            print("20 dollar bills:", twentyDollarBill, "10 dollar bills:", 
+            tenDollarBills, "5 dollar bills:", fiveDollarBills)
             
             multiple1 = twentyDollarBill * 20 
             multiple2 = tenDollarBills *10
             multiple3 = fiveDollarBills * 5
             
-            self.balance = amount - multiple1 
-            self.balance = amount - multiple2
-            self.balance = amount - multiple3
+            self.balance == amount - multiple1 
+            self.balance == amount - multiple2
+            self.balance == amount - multiple3
 
             print("ATM withdrawal successful. The new balance is: ", self.balance)
-        else:
-            print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
-    
+      
+            
     

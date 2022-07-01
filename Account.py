@@ -95,31 +95,32 @@ class Account:
     # and subtracts that amount from the amount given. Then returns the updated balance. 
      
     def ATMWithdrawal(self):
-        amount = int(input("Enter the amount to withdraw from the ATM: "))
+        amount = float(input("Enter the amount to withdraw from the ATM: "))
         if self.balance < amount:
             print("Insufficient funds")
-            return 0
 
         if (amount < 5 or amount > 1000) or (amount % 5 !=0):
             print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
         
-        else:
-            twentyDollarBill = amount // 20
-            tenDollarBills = amount // 10
-            fiveDollarBills = amount // 5
+        
+        twentyDollarBill = amount // 20
+        tenDollarBills = (amount - twentyDollarBill *20) //10
+        fiveDollarBills = (amount - twentyDollarBill *20 - tenDollarBills*10) //5
 
-            print("20 dollar bills:", twentyDollarBill, "10 dollar bills:", 
-            tenDollarBills, "5 dollar bills:", fiveDollarBills)
-            
-            multiple1 = twentyDollarBill * 20 
-            multiple2 = tenDollarBills *10
-            multiple3 = fiveDollarBills * 5
-            
-            self.balance == amount - multiple1 
-            self.balance == amount - multiple2
-            self.balance == amount - multiple3
+        # 515 (amount you wanna withdraw)
 
-            print("ATM withdrawal successful. The new balance is: ", self.balance)
+        # how many 20 dollar bills: 515/20=25
+        # how mny 10 dollar bills: 515 - 25*$20 = 15//10=1
+        # how many 5 dollar bills: (500 - 25*$20 - 0*$10)//5=1
+
+        print("20 dollar bills:", twentyDollarBill, "10 dollar bills:", 
+        tenDollarBills, "5 dollar bills:", fiveDollarBills)
+        
+        
+        self.balance -= amount
+       
+
+        print("ATM withdrawal successful. The new balance is: ", self.balance)
       
             
     

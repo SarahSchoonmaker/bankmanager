@@ -61,19 +61,19 @@ class Bank:
     def transferBetweenAccounts(self, transferFrom, transferTo, amount):
         
         for i in range(len(self.existingAccounts)):
-
             for j in range(len(self.existingAccounts)):
-                if self.existingAccounts[i].accountNumber == int(transferFrom):
-                    if (self.existingAccounts[j].accountNumber == int(transferTo)):
-                        if (self.existingAccounts[i].balance >= amount):
+                if self.existingAccounts[i].accountNumber == transferFrom:
+                    if self.existingAccounts[j].accountNumber == transferTo:
+                        if self.existingAccounts[i].balance >= amount:
+                            print(self.existingAccounts[i].balance)
                             self.existingAccounts[i].balance -= amount
                             self.existingAccounts[j].balance += amount
                             print("Transferred funds. The new balances are: ", 
                             self.existingAccounts[i].accountNumber,":",
                             self.existingAccounts[i].balance, self.existingAccounts[j].accountNumber,":", 
-                            self.existingAccounts[j].balance)
-                        
-                        print("Insufficient Funds. Deposit more funds in the account and try again.")
+                            self.existingAccounts[j].balance)   
+                        else:
+                            print("Insufficient Funds. Deposit more funds in the account and try again.")
                     
 
 

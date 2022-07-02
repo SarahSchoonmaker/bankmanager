@@ -36,6 +36,7 @@ class BankManager:
         active = True
         
         while active:
+            print("Welcome to the Bank!")
             userInput = int(input("""Please enter a number to select an option:  
             1) Open Account
             2) Get account information and balance
@@ -49,9 +50,14 @@ class BankManager:
             11) Exit the bank """))
             
             if userInput == 1:
-                self.bank.createAccounts()
+                firstName = str(input("Input your first name and press Enter: "))
+                lastName = str(input("Input your last name and press Enter: "))
+                social = int(input("Input your social security # and press Enter: "))
+                pin = int(input("Create a 4 digit pin and press Enter: "))
+                self.bank.createAccounts(firstName, lastName, social, pin)
             if userInput == 2:
-                self.bank.findAccount()
+                getAccount = float(input("Please provide your the account number to find: "))
+                self.bank.findAccount(getAccount)
             if userInput == 3:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
@@ -65,7 +71,10 @@ class BankManager:
             if userInput == 5:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    self.bank.transferBetweenAccounts()
+                    transferFrom = input("Provide the account number to transfer from: ")
+                    transferTo = input("Provide the account number to transfer to: ")
+                    amount = int(input("Amount transferred: "))
+                    self.bank.transferBetweenAccounts(transferFrom, transferTo, amount)
             if userInput == 6:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
@@ -73,17 +82,19 @@ class BankManager:
             if userInput == 7:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    i.ATMWithdrawal()
+                    amount = float(input("Enter the amount to withdraw from the ATM: "))
+                    i.ATMWithdrawal(amount)
             if userInput == 8:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                    amount = self.coinCollector.parseChange()
+                    amount = self.coinCollector.parseChange(amount)
                     if amount is not None:
                         i.deposit(amount)
             if userInput == 9:
                 i = self.promptForAccountNumberAndPIN(self)
                 if i != NULL:
-                   self.bank.removeAccountFromBank()
+                   removeAccount = int(input("Provide the account # to remove: "))
+                   self.bank.removeAccountFromBank(removeAccount)
             if userInput == 11:
                 print("Program closing...")
             

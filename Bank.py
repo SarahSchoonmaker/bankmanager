@@ -10,17 +10,13 @@ class Bank:
 #  Create count function gets user input, generates a random number for the account, and puts
 #  the user account information or user object into the existing accounts array if there are less
 # than 100 accounts. 
-    def createAccounts(self):
-        firstName = str(input("Input your first name and press Enter: "))
-        lastName = str(input("Input your last name and press Enter: "))
-        social = int(input("Input your social security # and press Enter: "))
-        pin = int(input("Create a 4 digit pin and press Enter: "))
-
-        accountNumber = BankUtility.generateRandomInt(self)
-        print("Your new account number is: " +str(accountNumber))
+    def createAccounts(self, firstName, lastName, social, pin):
         
+        
+        
+        accountNumber = BankUtility.generateRandomInt(self)
         account = Account(0, accountNumber, firstName, lastName, social, pin)
-    
+        print("Your new account number is: " +str(accountNumber))
         if (len(self.existingAccounts) < 100):
             self.existingAccounts.append(account)
 
@@ -30,9 +26,12 @@ class Bank:
         
     # This method finds and returns the account details if it exists. 
     # User provides their account number to search. 
-    def findAccount(self):
-        getAccount = float(input("Please provide your account number: "))
+    def findAccount(self, getAccount):
+        
         for i in range(len(self.existingAccounts)):
+            
+            if self.existingAccounts[i].accountNumber != int(getAccount):
+                print("Cannot find that account number.")
             
             if self.existingAccounts[i].accountNumber == int(getAccount):
                 print("Success. Account number found for: ", 
@@ -42,29 +41,24 @@ class Bank:
                 "First name:", self.existingAccounts[i].firstName,'\n', 
                 "Last name:", self.existingAccounts[i].lastName)
             
-            else:
-                print("Could not find the account.")
                 
     # Removing the account from the existing accounts object. 
      
-    def removeAccountFromBank(self):
-        removeAccount = int(input("Provide the account # to remove: "))
-        
+    def removeAccountFromBank(self, removeAccount):
+
         for i in range(len(self.existingAccounts)):
-            
+            if self.existingAccounts[i].accountNumber != int(removeAccount):
+                print("Could not find the account you are looking to remove.")
+
             if self.existingAccounts[i].accountNumber == int(removeAccount):
                 self.existingAccounts.remove(self.existingAccounts[i])
                 print("Accout successfully removed")
 
-        
-    print("Could not find the account.")   
+               
 
 #  Transfer money between accounts that the user specifies and returning the updated balances. 
 
-    def transferBetweenAccounts(self):
-        transferFrom = input("Provide the account number to transfer from: ")
-        transferTo = input("Provide the account number to transfer to: ")
-        amount = int(input("Amount transferred: "))
+    def transferBetweenAccounts(self, transferFrom, transferTo, amount):
         
         for i in range(len(self.existingAccounts)):
 
@@ -76,9 +70,11 @@ class Bank:
                             self.existingAccounts[j].balance += amount
                             print("Transferred funds. The new balances are: ", 
                             self.existingAccounts[i].accountNumber,":",
-                            self.existingAccounts[i].balance, self.existingAccounts[j].accountNumber,":", self.existingAccounts[j].balance)
-                        else:
-                            print("Insufficient Funds.")
+                            self.existingAccounts[i].balance, self.existingAccounts[j].accountNumber,":", 
+                            self.existingAccounts[j].balance)
+                        
+                        print("Insufficient Funds. Deposit more funds in the account and try again.")
                     
+
 
                         

@@ -1,5 +1,6 @@
 #  import random to generate random numbers.
 import random
+from typing_extensions import Self
 
 class BankUtility:
     
@@ -12,8 +13,8 @@ class BankUtility:
     @staticmethod   
     def generateRandomInt(self):
 
-        secNum = int(random.SystemRandom().random()*10**8)
-        return secNum
+        self.secNum = int(random.SystemRandom().random()*10**8)
+        return self.secNum
 
 
     def promptUserForString(prompt):
@@ -26,8 +27,9 @@ class BankUtility:
         return getPositiveInteger
         
 
-    def convertFromDollarsToCents(dollar):         
-        cents = float(dollar) * 100
+    def convertFromDollarsToCents(self):  
+        self.dollar = 100.50       
+        cents = self.dollar / 100
         return cents
         
 
@@ -41,11 +43,10 @@ class BankUtility:
     @param numberToCheck String to check
     @return true if the String is a number, false otherwise
     '''
-    def isNumeric(numberToCheck):
-        try:
-            if numberToCheck.isdigit():
-                return True
-            else:
-                return False
-        except ValueError:
-            return False
+    def checkInt(self):
+        self.inputNum = input("Enter a value to see if it is an integer")
+        if type(self.inputNum) == type(self.inputNum):
+            print("Input is an number.")
+
+        return -1
+            

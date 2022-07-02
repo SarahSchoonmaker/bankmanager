@@ -1,5 +1,4 @@
 
-
 from BankUtility import *
 
 
@@ -67,7 +66,7 @@ class Account:
             self.balance -= amount
             print("The withdrawal is successful and the new balance is: ", self.balance)
         else:
-            print("Insufficient funds.")   
+            print("Insufficient funds. Deposit money and try again.")   
 
     #  Checking if the pin is valid
     def isValidPIN(self, getPin):
@@ -94,13 +93,18 @@ class Account:
     # ATM withdrawal function. Counts how many 20, 10, and 5 dollar bills divide into the amount
     # and subtracts that amount from the amount given. Then returns the updated balance. 
      
-    def ATMWithdrawal(self):
-        amount = float(input("Enter the amount to withdraw from the ATM: "))
-        if self.balance < amount:
-            print("Insufficient funds")
-
-        if (amount < 5 or amount > 1000) or (amount % 5 !=0):
-            print("Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that is divisible by 5.")
+    def ATMWithdrawal(self, amount):
+        
+        if (self.balance < amount):
+            print("Insufficient funds. Deposit more funds.")
+            return
+        # if self.balance < amount:
+        #     self.insufficientFunds=True
+        #     print("Insufficient funds")
+        # while self.insufficientFunds == False:
+        if ((amount < 5 or amount > 1000) or (amount % 5 !=0)):
+            print("""Invalid entry. Try again. Provide a number greater than 5 and less than 1000 that 
+            is divisible by 5.""")
         
         
         twentyDollarBill = amount // 20
@@ -118,9 +122,6 @@ class Account:
         
         
         self.balance -= amount
-       
+    
 
         print("ATM withdrawal successful. The new balance is: ", self.balance)
-      
-            
-    
